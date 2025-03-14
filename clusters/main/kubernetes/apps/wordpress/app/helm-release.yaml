@@ -49,15 +49,7 @@ spec:
              enabled: true
             src:
               enabled: true
-      mariadb-data:
-        volsync:
-          - name: config
-            type: restic
-            credentials: s3
-            dest:
-             enabled: true
-            src:
-              enabled: true
+      
     #    mountPath: /bitnami/wordpress
     #    enabled: true
     #    type: nfs 
