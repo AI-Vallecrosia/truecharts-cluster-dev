@@ -30,8 +30,34 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    #persistence:
-    #  config:
+    credentials:
+      s3:
+        type: s3
+        path: "/wordpress"
+        url: "${S3_ENDPOINT}"
+        bucket: "${S3_BUCKET}"
+        accessKey: "${S3_ID}"
+        secretKey: "${S3_KEY}"
+        encrKey: "${S3_KEY}"
+    persistence:
+      config:
+        volsync:
+          - name: config
+            type: restic
+            credentials: s3
+            dest:
+             enabled: true
+            src:
+              enabled: true
+      mariadb-data:
+        volsync:
+          - name: config
+            type: restic
+            credentials: s3
+            dest:
+             enabled: true
+            src:
+              enabled: true
     #    mountPath: /bitnami/wordpress
     #    enabled: true
     #    type: nfs 
