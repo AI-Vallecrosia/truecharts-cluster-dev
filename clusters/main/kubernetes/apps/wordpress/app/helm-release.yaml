@@ -33,7 +33,6 @@ spec:
     credentials:
       s3:
         type: s3
-        path: "/wordpress"
         url: "${S3_ENDPOINT}"
         bucket: "${S3_BUCKET}"
         accessKey: "${S3_ID}"
