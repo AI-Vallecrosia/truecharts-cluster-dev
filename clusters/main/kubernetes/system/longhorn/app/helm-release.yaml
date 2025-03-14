@@ -45,3 +45,9 @@ spec:
           - host: longhorn.cloud.dev.local
             paths:
               - path: /
+        tls:
+          - hosts:
+              - longhorn.cloud.dev.local
+        integrations:
+          traefik:
+            enabled: true
