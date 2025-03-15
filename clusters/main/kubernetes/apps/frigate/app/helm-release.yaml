@@ -2,14 +2,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: wordpress
-  namespace: wordpress
+  name: frigate
+  namespace: frigate
 spec:
   interval: 15m
   chart:
     spec:
-      chart: wordpress
-      version: 9.15.3
+      chart: frigate
+      version: 17.0.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -29,6 +29,7 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+
   values:
     credentials:
       s3:
@@ -38,6 +39,20 @@ spec:
         accessKey: "${S3_ID}"
         secretKey: "${S3_KEY}"
         encrKey: "${S3_KEY}"
+    ingress:
+      main:
+        enabled: true
+        primary: true
+        hosts:
+          - host: frigate.cloud.dev.local
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - frigate.cloud.dev.local
+        integrations:
+          traefik:
+            enabled: true
     persistence:
       config:
         volsync:
@@ -48,17 +63,10 @@ spec:
              enabled: true
             src:
               enabled: true
-    ingress:
-      wordpress:
+      media:
+        readOnly: true
         enabled: true
-        primary: true
-        hosts:
-          - host: wordpress.cloud.dev.local
-            paths:
-              - path: /
-        tls:
-          - hosts:
-              - wordpress.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true
+        type: nfs 
+        mountPath: /media
+        path: /mnt/DVR/Frigate-Recordings
+        server: "10.0.50.10"

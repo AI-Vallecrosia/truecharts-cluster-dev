@@ -2,14 +2,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: wordpress
-  namespace: wordpress
+  name: navidrome
+  namespace: navidrome
 spec:
   interval: 15m
   chart:
     spec:
-      chart: wordpress
-      version: 9.15.3
+      chart: navidrome
+      version: 21.8.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -39,26 +39,31 @@ spec:
         secretKey: "${S3_KEY}"
         encrKey: "${S3_KEY}"
     persistence:
-      config:
+      data:
         volsync:
-          - name: config
+          - name: data
             type: restic
             credentials: s3
             dest:
              enabled: true
             src:
               enabled: true
+      music:
+        readOnly: true
+        type: nfs 
+        path: /mnt/AI_Storage/Music
+        server: "10.0.50.10"
     ingress:
-      wordpress:
+      main:
         enabled: true
-        primary: true
         hosts:
-          - host: wordpress.cloud.dev.local
+          - host: navidrome.cloud.dev.local
             paths:
               - path: /
         tls:
           - hosts:
-              - wordpress.cloud.dev.local
+              - navidrome.cloud.dev.local
         integrations:
           traefik:
             enabled: true
+   

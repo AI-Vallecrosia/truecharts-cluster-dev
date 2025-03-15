@@ -3,3 +3,12 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - wordpress/ks.yaml
+  - calibre-web/ks.yaml
+  - fireflyiii/ks.yaml
+  - frigate/ks.yaml
+  - genea/ks.yaml
+  - home-assistant/ks.yaml
+  - homepage/ks.yaml
+  - jellyfin/ks.yaml
+  - navidrome/ks.yaml
+  - nextcloud/ks.yaml
