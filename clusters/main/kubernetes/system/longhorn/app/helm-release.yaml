@@ -35,19 +35,6 @@ spec:
       defaultClass: true
       # Increase to 3 for a multi-node cluster
       defaultClassReplicaCount: 1
-    
-    # WARNING -----------------------
-    #   custom lines added by Oreste 13-03-25:
-    ingress:
-      main:
-        enabled: true
-        hosts:
-          - host: longhorn.cloud.dev.local
-            paths:
-              - path: /
-        tls:
-          - hosts:
-              - longhorn.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true
+    longhornUI:
+      replicas: 1    
+
