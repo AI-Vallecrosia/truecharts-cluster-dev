@@ -38,6 +38,25 @@ spec:
         accessKey: "${S3_ID}"
         secretKey: "${S3_KEY}"
         encrKey: "${S3_KEY}"
+    mariadb: 
+      credentials:
+        s3:
+          type: s3
+          url: "${S3_ENDPOINT}"
+          bucket: "${S3_BUCKET}"
+          accessKey: "${S3_ID}"
+          secretKey: "${S3_KEY}"
+          encrKey: "${S3_KEY}"
+      persistence:
+        data: 
+          volsync:
+            - name: mariadb-data
+              type: restic
+              credentials: s3
+              dest:
+                enabled: true
+              src:
+                enabled: true
     persistence:
       config:
         volsync:
@@ -48,17 +67,6 @@ spec:
              enabled: true
             src:
               enabled: true
-      mariadb-data:
-        volsync:
-          - name: mariadb-data
-            type: restic
-            credentials: s3
-            dest:
-             enabled: true
-            src:
-              enabled: true
-        enabled: true
-        mountPath: /bitnami/mariadb
     ingress:
       wordpress:
         enabled: true
