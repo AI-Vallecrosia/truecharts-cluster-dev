@@ -59,12 +59,12 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: calibre.cloud.dev.local
+          - host: calibre-web.cloud.dev.local
             paths:
               - path: /
         tls:
           - hosts:
-              - calibre.cloud.dev.local
+              - calibre-web.cloud.dev.local
         integrations:
           traefik:
             enabled: true 
