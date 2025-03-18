@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
-  #- wordpress/ks.yaml
+  - wordpress/ks.yaml
   - calibre-web/ks.yaml
   - fireflyiii/ks.yaml
   - frigate/ks.yaml
@@ -11,4 +11,4 @@ resources:
   - homepage/ks.yaml
   - jellyfin/ks.yaml
   - navidrome/ks.yaml
-  #- nextcloud/ks.yaml
+  - nextcloud/ks.yaml
