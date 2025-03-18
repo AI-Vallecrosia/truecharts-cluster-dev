@@ -57,6 +57,8 @@ spec:
              enabled: true
             src:
               enabled: true
+        enabled: true
+        mountPath: /bitnami/mariadb
     ingress:
       wordpress:
         enabled: true
