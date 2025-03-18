@@ -114,7 +114,6 @@ spec:
             src:
               enabled: true
       data:
-        readOnly: true
         type: nfs 
         path: /mnt/AI_Storage/Nextcloud_storage
         server: "10.0.50.10"
