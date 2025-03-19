@@ -53,12 +53,12 @@ spec:
         enabled: true
         primary: true
         hosts:
-          - host: wordpress-tizi.cloud.local
+          - host: wordpress-tizi.cloud.dev.local
             paths:
               - path: /
         tls:
           - hosts:
-              - wordpress-tizi.cloud.local
+              - wordpress-tizi.cloud.dev.local
         integrations:
           traefik:
             enabled: true

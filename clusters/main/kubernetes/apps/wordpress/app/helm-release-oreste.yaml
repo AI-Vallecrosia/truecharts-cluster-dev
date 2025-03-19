@@ -53,12 +53,12 @@ spec:
         enabled: true
         primary: true
         hosts:
-          - host: wordpress-oreste.cloud.local
+          - host: wordpress-oreste.cloud.dev.local
             paths:
               - path: /
         tls:
           - hosts:
-              - wordpress-oreste.cloud.local
+              - wordpress-oreste.cloud.dev.local
         integrations:
           traefik:
             enabled: true
