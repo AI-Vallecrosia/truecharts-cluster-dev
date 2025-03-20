@@ -114,26 +114,14 @@ spec:
             src:
               enabled: true
       data:
-        type: nfs 
-        path: /mnt/AI_Storage/Nextcloud_storage
-        server: "10.0.50.10"
-        targetSelector:
-          main:
-            main:
-              mountPath: /var/www/html/data
-            init-perms:
-              mountPath: /var/www/html/data
-          nextcloud-cron:
-            nextcloud-cron:
-              mountPath: /var/www/html/data
-          preview-cron:
-            preview-cron:
-              mountPath: /var/www/html/data
-          nginx:
-            nginx:
-              mountPath: /var/www/html/data
-              readOnly: true
-        
+        volsync:
+          - name: data
+            type: restic
+            credentials: s3
+            dest:
+             enabled: true
+            src:
+              enabled: true
     
     cnpg:
       main:
