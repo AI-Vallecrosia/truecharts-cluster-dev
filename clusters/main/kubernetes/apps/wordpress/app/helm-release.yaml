@@ -8,7 +8,6 @@ spec:
   interval: 15m
   chart:
     spec:
-      replicas: 2
       chart: wordpress
       version: 9.15.4
       sourceRef:
@@ -31,6 +30,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    wordpress:
+      replicas: 1
+      rollOutPods: true
     credentials:
       s3:
         type: s3
