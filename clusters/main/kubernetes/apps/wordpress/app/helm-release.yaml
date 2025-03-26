@@ -30,7 +30,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    replicas: 2
+    wordpress:
+      replicas: 2
     credentials:
       s3:
         type: s3
