@@ -30,9 +30,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    wordpress:
-      replicas: 2
-      rollOutPods: true
+    replicas: 2
     credentials:
       s3:
         type: s3
