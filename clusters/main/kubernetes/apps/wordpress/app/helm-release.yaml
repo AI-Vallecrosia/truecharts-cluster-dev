@@ -8,6 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
+      replicas: 2
       chart: wordpress
       version: 9.15.4
       sourceRef:
