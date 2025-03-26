@@ -31,7 +31,7 @@ spec:
     keepHistory: false
   values:
     wordpress:
-      replicas: 1
+      replicas: 2
       rollOutPods: true
     credentials:
       s3:
