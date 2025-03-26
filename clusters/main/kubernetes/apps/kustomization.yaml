@@ -12,3 +12,4 @@ resources:
   - jellyfin/ks.yaml
   - navidrome/ks.yaml
   - nextcloud/ks.yaml
+  - matomo/ks.yaml
