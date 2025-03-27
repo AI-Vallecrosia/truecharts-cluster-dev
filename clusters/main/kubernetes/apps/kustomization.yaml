@@ -13,3 +13,4 @@ resources:
   - navidrome/ks.yaml
   - nextcloud/ks.yaml
   - matomo/ks.yaml
+  - odoo/ks.yaml

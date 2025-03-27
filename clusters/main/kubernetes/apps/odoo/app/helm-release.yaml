@@ -1,0 +1,81 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: odoo
+  namespace: odoo
+
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: odoo
+      version: 20.3.7
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  driftDetection:
+    mode: warn
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    credentials:
+      s3:
+        type: s3
+        url: "${S3_ENDPOINT}"
+        bucket: "${S3_BUCKET}"
+        accessKey: "${S3_ID}"
+        secretKey: "${S3_KEY}"
+        encrKey: "${S3_KEY}"
+    persistence:
+      odoo:
+        volsync:
+          - name: odoo
+            type: restic
+            credentials: s3
+            dest:
+             enabled: true
+            src:
+              enabled: true
+      addons:
+        volsync:
+          - name: addons
+            type: restic
+            credentials: s3
+            dest:
+             enabled: true
+            src:
+              enabled: true
+    cnpg:
+      main:
+        backups:
+          enabled: true
+          credentials: s3
+        recovery:
+          credentials: s3
+    ingress:
+      odoo:
+        enabled: true
+        primary: true
+        hosts:
+          - host: odoo.cloud.dev.local
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - odoo.cloud.dev.local
+        integrations:
+          traefik:
+            enabled: true
