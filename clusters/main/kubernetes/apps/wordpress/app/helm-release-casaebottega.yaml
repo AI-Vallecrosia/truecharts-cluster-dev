@@ -31,7 +31,8 @@ spec:
     keepHistory: false
   values:
     securityContext:
-      wordpress:
+      container:
+        PUID: 0
         runAsNonRoot: false
         runAsUser: 0
         runAsGroup: 0
