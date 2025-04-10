@@ -30,14 +30,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    securityContext:
-      container:
-        PUID: 0
-        runAsNonRoot: false
-        runAsUser: 0
-        runAsGroup: 0
-        readOnlyRootFilesystem: false
-        privileged: true
     credentials:
       s3:
         type: s3
