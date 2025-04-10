@@ -30,6 +30,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    securityContext:
+      wordpress:
+        runAsNonRoot: false
+        runAsUser: 0
+        runAsGroup: 0
+        readOnlyRootFilesystem: false
+        privileged: true
     credentials:
       s3:
         type: s3
