@@ -58,6 +58,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: jellyfin.cloud.dev.local
             paths:
@@ -65,8 +66,6 @@ spec:
         tls:
           - hosts:
               - jellyfin.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true
+
 
    

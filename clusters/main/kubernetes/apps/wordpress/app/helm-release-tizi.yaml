@@ -50,6 +50,7 @@ spec:
               enabled: true
     ingress:
       wordpress:
+        ingressClassName: internal
         enabled: true
         primary: true
         hosts:
@@ -59,6 +60,3 @@ spec:
         tls:
           - hosts:
               - wordpress-tizi.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true

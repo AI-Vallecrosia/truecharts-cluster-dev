@@ -72,6 +72,7 @@ spec:
       matomo:
         enabled: true
         primary: true
+        ingressClassName: internal
         hosts:
           - host: matomo.cloud.dev.local
             paths:
@@ -79,6 +80,3 @@ spec:
         tls:
           - hosts:
               - matomo.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true

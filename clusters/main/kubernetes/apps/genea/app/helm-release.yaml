@@ -34,6 +34,7 @@ spec:
       genea:
         enabled: true
         primary: true
+        ingressClassName: internal
         hosts:
           - host: genea.cloud.dev.local
             paths:
@@ -41,6 +42,3 @@ spec:
         tls:
           - hosts:
               - genea.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true

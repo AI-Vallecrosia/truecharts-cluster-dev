@@ -39,11 +39,9 @@ spec:
             port: 80
     ingress:
       main:
+        ingressClassName: internal
         enabled: true
         hosts:
           - host: dashboard.cloud.dev.local
             paths:
               - path: /
-        integrations:
-          traefik:
-            enabled: true

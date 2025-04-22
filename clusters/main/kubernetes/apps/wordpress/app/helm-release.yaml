@@ -73,6 +73,7 @@ spec:
       wordpress:
         enabled: true
         primary: true
+        ingressClassName: internal
         hosts:
           - host: wordpress.cloud.dev.local
             paths:
@@ -80,6 +81,3 @@ spec:
         tls:
           - hosts:
               - wordpress.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true

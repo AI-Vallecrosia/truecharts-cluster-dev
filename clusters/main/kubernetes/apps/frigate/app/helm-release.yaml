@@ -43,6 +43,7 @@ spec:
       main:
         enabled: true
         primary: true
+        ingressClassName: internal
         hosts:
           - host: frigate.cloud.dev.local
             paths:
@@ -50,9 +51,6 @@ spec:
         tls:
           - hosts:
               - frigate.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true
     persistence:
       config:
         volsync:

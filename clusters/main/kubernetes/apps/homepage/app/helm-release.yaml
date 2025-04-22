@@ -52,6 +52,7 @@ spec:
       main:
         enabled: true
         primary: true
+        ingressClassName: internal
         hosts:
           - host: homepage.cloud.dev.local
             paths:
@@ -59,6 +60,3 @@ spec:
         tls:
           - hosts:
               - homepage.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true

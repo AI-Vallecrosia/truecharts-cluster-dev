@@ -76,6 +76,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: nextcloud.cloud.dev.local
             paths:
@@ -83,9 +84,6 @@ spec:
         tls:
           - hosts:
               - nextcloud.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true
     credentials:
       s3:
         type: s3

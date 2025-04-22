@@ -57,6 +57,7 @@ spec:
               enabled: true
     ingress:
       main:
+        ingressClassName: internal
         enabled: true
         hosts:
           - host: calibre-web.cloud.dev.local
@@ -65,7 +66,4 @@ spec:
         tls:
           - hosts:
               - calibre-web.cloud.dev.local
-        integrations:
-          traefik:
-            enabled: true 
    
