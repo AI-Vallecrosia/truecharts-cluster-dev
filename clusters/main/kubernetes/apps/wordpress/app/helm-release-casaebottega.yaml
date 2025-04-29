@@ -52,7 +52,7 @@ spec:
       wordpress:
         enabled: true
         primary: true
-        ingressClassName: internal
+        ingressClassName: external
         hosts:
           - host: wordpress-casaebottega.cloud.dev.local
             paths:
