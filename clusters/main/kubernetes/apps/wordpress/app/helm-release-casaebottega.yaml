@@ -30,6 +30,15 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                PHP_DEFAULT_MEMORY_LIMIT: "2048M"
+                PHP_DEFAULT_POST_MAX_SIZE: "2048M"
+                PHP_DEFAULT_UPLOAD_MAX_FILESIZE: "2048M"
     credentials:
       s3:
         type: s3
